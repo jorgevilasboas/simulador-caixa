@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: simulador-caixa-backend
+    environment:
+      JWT_SECRET: your_jwt_secret_key_here_change_in_production
+      PORT: 5000
+      NODE_ENV: development
+      CORS_ORIGIN: http://localhost:3000
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - sqlite_data:/app/database
+    networks:
+      - simulador-network
+    restart: unless-stopped
+    command: npm run dev
+
+  # Frontend React App
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: simulador-caixa-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - backend
+    networks:
+      - simulador-network
+    restart: unless-stopped
+    command: npm start
+
+volumes:
+  sqlite_data:
+
+networks:
+  simulador-network:
+    driver: bridge

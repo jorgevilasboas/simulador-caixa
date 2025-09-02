@@ -1,0 +1,24 @@
+{
+  "name": "simulador-caixa",
+  "version": "1.0.0",
+  "description": "Sistema de gerenciamento de leads e empreendimentos para simulador da Caixa",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm start",
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "db:view": "node view-database.js",
+    "db:migrate": "cd backend && npm run migrate"
+  },
+  "keywords": ["simulador", "caixa", "empreendimentos", "leads"],
+  "author": "Jorge",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "sqlite3": "^5.1.6"
+  }
+}
+
