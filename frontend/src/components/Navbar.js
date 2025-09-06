@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { LogOut, User, Users, Building, Home } from 'lucide-react';
+import { LogOut, User, Users, Building, Home, Calculator } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -53,6 +53,15 @@ const Navbar = () => {
             >
               <Building size={16} style={{ marginRight: '5px' }} />
               Empreendimentos
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to="/simulacao" 
+              className={`nav-link ${isActive('/simulacao') ? 'active' : ''}`}
+            >
+              <Calculator size={16} style={{ marginRight: '5px' }} />
+              Simulação
             </Link>
           </li>
         </ul>

@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
 import Leads from './pages/Leads';
 import Empreendimentos from './pages/Empreendimentos';
+import Simulacao from './pages/Simulacao';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import './App.css';
 
@@ -40,6 +41,7 @@ function AppContent() {
           <Route path="/users" element={<Users />} />
           <Route path="/leads" element={<Leads />} />
           <Route path="/empreendimentos" element={<Empreendimentos />} />
+          <Route path="/simulacao" element={<Simulacao />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

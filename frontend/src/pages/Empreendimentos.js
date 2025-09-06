@@ -197,6 +197,7 @@ const Empreendimentos = () => {
                 <th>Construtora</th>
                 <th>Cidade</th>
                 <th>Valor do Imóvel</th>
+                <th>Valor da Avaliação</th>
                 <th>Área Útil</th>
                 <th>Tipologia</th>
                 <th>Data Entrega</th>
@@ -216,6 +217,7 @@ const Empreendimentos = () => {
                   <td>{emp.construtora || '-'}</td>
                   <td>{emp.cidade || '-'}</td>
                   <td>{formatCurrency(emp.valor_imovel)}</td>
+                  <td>{formatCurrency(emp.valor_avaliacao)}</td>
                   <td>{emp.area_util ? `${emp.area_util} m²` : '-'}</td>
                   <td>{emp.tipologia || '-'}</td>
                   <td>{formatDate(emp.data_entrega)}</td>

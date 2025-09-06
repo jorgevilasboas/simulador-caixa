@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Users, User, Building, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Users, User, Building, Calculator } from 'lucide-react';
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
@@ -64,6 +65,14 @@ const Dashboard = () => {
           <div className="stat-number">{stats.empreendimentos}</div>
           <div className="stat-label">Empreendimentos</div>
         </div>
+        
+        <div className="stat-card" style={{ cursor: 'pointer' }}>
+          <Link to="/simulacao" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Calculator size={32} color="#dc3545" style={{ marginBottom: '10px' }} />
+            <div className="stat-number">Simular</div>
+            <div className="stat-label">Financiamento</div>
+          </Link>
+        </div>
       </div>
 
       <div className="card">
@@ -79,6 +88,7 @@ const Dashboard = () => {
             <li><strong>Usuários:</strong> Gerenciar contas de usuários do sistema</li>
             <li><strong>Leads:</strong> Cadastrar e gerenciar leads de clientes</li>
             <li><strong>Empreendimentos:</strong> Importar e gerenciar empreendimentos via PDF</li>
+            <li><strong>Simulação:</strong> Realizar simulações de financiamento combinando leads e empreendimentos</li>
           </ul>
         </div>
       </div>

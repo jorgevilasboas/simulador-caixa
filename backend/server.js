@@ -8,6 +8,7 @@ const authRoutes = require('./src/routes/auth');
 const userRoutes = require('./src/routes/users');
 const leadRoutes = require('./src/routes/leads');
 const empreendimentoRoutes = require('./src/routes/empreendimentos');
+const simulacaoRoutes = require('./src/routes/simulacao');
 const { connectDB } = require('./src/database/connection');
 
 const app = express();
@@ -41,6 +42,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/leads', leadRoutes);
 app.use('/api/empreendimentos', empreendimentoRoutes);
+app.use('/api/simulacao', simulacaoRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
